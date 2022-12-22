@@ -1,0 +1,25 @@
+select Case Region 
+    WHEN 'Southn' THEN 'South'
+    WHEN 'South' THEN 'South'
+    WHEN 'Central' THEN 'Central'
+    WHEN 'East' THEN 'East'
+    ELSE 'West'
+END as Region,
+category, sub_category, product_name, customer_name, segment,
+order_date,
+ship_date,
+ship_mode,
+country,
+city,
+state,
+postal_code,
+sales,
+quantity,
+discount,
+profit,
+customer_id
+from `project-binar-chapter-3.Binar.Order` 
+left join `project-binar-chapter-3.Binar.categories`
+using (product_id)
+left join `Binar.customer`
+using (customer_id) where region is not null
